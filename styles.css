@@ -1,0 +1,142 @@
+:root{
+  --main-color: #edf2f4;
+  --bright-red: #ef233c;
+  --dark-red: #d90429;  
+  --dark-blue:#2b2d42;
+  --grey:#8d99ae;
+  --white-color:white;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background-color: var(--main-color);
+  height: 100svh;
+}
+
+/* STYLING */
+
+header{
+  align-items: center;
+  background-color: var(--bright-red);
+  box-shadow: 0 5px 10px #00000025;
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+}
+
+header h1{
+  color: var(--white-color);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.header-button{
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  transition: all .2s;
+}
+
+#login-button:hover{
+  background-color: var(--dark-blue);
+  color: var(--main-color);
+}
+
+#add-book-button{
+  background-color: var(--dark-blue);
+  color: var(--main-color);
+  margin-left: 10px;
+}
+
+#add-book-button:hover{
+  background-color: var(--main-color);
+  color: var(--dark-blue);
+}
+
+/*MAIN GRID CONTENT*/
+
+main{
+  padding: 40px;
+}
+
+#grid-wrapper{
+  display: grid;
+  gap: 80px 40px;
+  grid-template: 1fr / repeat(auto-fill,minmax(350px,1fr));
+}
+
+.book-card{
+  background-color: var(--dark-blue);
+  border-radius: 20px;
+  box-shadow: 0px 5px 5px #00000058;
+  padding: 25px 25px 0 25px;
+  position: relative;
+  height: 380px;
+}
+
+.book-read{
+  background-image: linear-gradient(210deg,var(--dark-blue) 20%,var(--dark-red)); 
+}
+
+.delete-button{
+  cursor: pointer;
+  height: 30px;
+
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: all .25s;
+}
+
+.delete-button:active{
+  transform: scale(0.8);
+}
+
+.book-property,.book-status{
+  border-radius: 5px;
+  font-size: 1.3rem;
+  margin: 10px 0;
+  height: 50px;
+}
+
+.book-property{
+  align-items: center;
+  background-color: var(--main-color);
+  padding-left: 10px;
+  display: flex;
+}
+
+.book-status{
+  border: 1px solid black;
+  cursor: pointer;
+  color: var(--white-color);
+  background-color: var(--dark-blue);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.429);
+  text-transform: uppercase;
+  transition: all ease-out .15s;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.book-status:active{
+  transform: scale(.9);
+}
+
+
+.book-property-name{
+  margin: 0;
+  color: var(--bright-red);
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 0px black;
+  text-transform: uppercase;
+  top:-24px;
+}
