@@ -24,17 +24,17 @@
   <main>
     <form class="add-book-popup">
       <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="add-book">Add book</button>
+        <label for="name-input" class="book-property-name">name</label>
+          <input id="name-input" class="book-property" required>
+        <label for="author-input" class="book-property-name">Author</label>
+          <input id="author-input" class="book-property" required>
+        <label for="pages-input" class="book-property-name">Pages</label>
+          <input id="pages-input" type="number" class="book-property" required>
+          <div class="popup-checkbox-wrapper">
+            <label for="read-status" class="book-property-name">Read?</label>
+              <input id="read-status" class="popup-checkbox" type="checkbox">
+          </div>
+        <button type="submit" id="popup-add-btn" class="book-status ">Add book</button>
     </form>
 
     <div id="grid-wrapper">
