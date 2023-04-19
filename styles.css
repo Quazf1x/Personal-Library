@@ -71,6 +71,7 @@ header h1{
   left:0;
   right: 0;
   z-index: 1;
+  transform: scale(0);
 }
 
 /*MAIN GRID CONTENT*/
@@ -88,6 +89,8 @@ main{
   grid-template: 1fr / repeat(auto-fill,minmax(300px,1fr));
   width: 70%;
 }
+ 
+/*BOOK CARDS AND POPUP*/
 
 .book-card,.add-book-popup{
   background-color: var(--dark-blue);
@@ -96,12 +99,18 @@ main{
   padding: 25px 25px 0 25px;
   height: 410px;
 }
-/*POPUP ^ v*/
+/*POPUP*/
 
 .add-book-popup{
   position: absolute;
   width: clamp(200px,60%,400px);
+  transform: scale(0);
+  transition: all .2s ease-in;
   z-index: 2;
+}
+
+.popup-active{
+  transform: scale(1);
 }
 
 .add-book-popup input{
@@ -121,6 +130,8 @@ main{
 #popup-add-btn{
   background-color: var(--grey);
 }
+
+/*BOOK CARDS*/
 
 .book-card{
   position: relative; 
