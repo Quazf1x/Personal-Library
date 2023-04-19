@@ -65,13 +65,13 @@ header h1{
 /*MAIN GRID CONTENT*/
 
 main{
-  padding: 40px;
+  padding: 40px 200px;
 }
 
 #grid-wrapper{
   display: grid;
   gap: 80px 40px;
-  grid-template: 1fr / repeat(auto-fill,minmax(350px,1fr));
+  grid-template: 1fr / repeat(auto-fill,minmax(300px,1fr));
 }
 
 .book-card{
