@@ -14,13 +14,29 @@
   <title>Personal Library</title>
 </head>
 <body>
+  <div class="overlay"></div>
   <header>
     <h1>Personal library</h1>
-    <div> 
+    <div id="header-buttons"> 
       <button id="login-button" class="header-button"> Log In</button>
       <button id="add-book-button" class="header-button"> Add Book</button></div>
   </header>
   <main>
+    <form class="add-book-popup">
+      <img class="delete-button" src="img/close.svg">
+        <h2 class="book-property-name">name</h2>
+        <p class="book-property book-author">
+          sunny day
+        </p>
+        <h2 class="book-property-name">Author</h2>
+        <p class="book-property book-name">
+          steven e</p>
+          <h2 class="book-property-name">Pages</h2>
+        <p class="book-property book-pages">
+          49</p>
+        <button class="add-book">Add book</button>
+    </form>
+
     <div id="grid-wrapper">
       <div class="book-card book-read">
         <img class="delete-button" src="img/close.svg">
@@ -35,79 +51,7 @@
         <p class="book-property book-pages">
           49</p>
         <button class="book-status read">read</button>
-      </div> 
-      <div class="book-card book-read">
-        <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> 
-      <div class="book-card book-read">
-        <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> 
-      <div class="book-card book-read">
-        <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> 
-      <div class="book-card book-read">
-        <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> 
-      <div class="book-card book-read">
-        <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> 
-      
-
+      </div>
     </div>
   </main>
 </body>
