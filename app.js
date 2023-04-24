@@ -4,6 +4,7 @@ const addBookWindow = document.querySelector('.add-book-popup');
 const overlay = document.querySelector('.overlay');
 const closeBookWindowBtn = document.querySelector('#add-book-popup-close');
 const addBookToLibraryBtn = document.querySelector('#popup-add-btn');
+const windowForm= document.querySelector('.add-book-popup');
 
 let userLibrary = [];
 
@@ -28,6 +29,7 @@ const addBookToLibrary = (book) => {
 const openBookWindow = () => {
   overlay.classList.add('popup-active');
   addBookWindow.classList.add('popup-active');
+  windowForm.reset();  
 }
 
 const closeBookWindow = () => {
@@ -44,22 +46,20 @@ const getBookFromInput = () =>{
   return new Book(name, author, pagesCount, status);
 }
 
-const createBookCard = (book) => {
+  const createBookCard = (book) => {
 
   //Creating elements
 
   const bookCard = document.createElement('div');
   const bookCardDeleteBtn = document.createElement('img');
 
-  const bookNameCategory = document.createElement('h2');
-  const bookName = document.createElement('p');
+  const bookName = document.createElement('span');
 
-  const bookAuthorCategory = document.createElement('h2');
-  const bookAuthor = document.createElement('p');
+  const bookAuthor = document.createElement('span');
 
-  const bookPagesCategory = document.createElement('h2');
-  const bookPages = document.createElement('p');
+  const bookPages = document.createElement('span');
 
+  const bookStatusWrapper = document.createElement('div');
   const bookStatus = document.createElement('button');
 
  //Adding classes
@@ -68,46 +68,42 @@ const createBookCard = (book) => {
   bookCardDeleteBtn.classList.add('delete-button');
   bookCardDeleteBtn.setAttribute('src','img/close.svg');
 
-  bookNameCategory.classList.add('book-property-name');
   bookName.classList.add('book-property');
-
-  bookAuthorCategory.classList.add('book-property-name');
   bookAuthor.classList.add('book-property');
-
-  bookPagesCategory.classList.add('book-property-name');
   bookPages.classList.add('book-property');
 
   bookStatus.classList.add('book-status');
 
   //Filling the elements
 
-  bookNameCategory.textContent = 'Name';
-  bookName.textContent = book.name;
-  bookAuthorCategory.textContent = 'Author';
-  bookAuthor.textContent = book.author;
-  bookPagesCategory.textContent = 'Pages';
-  bookPages.textContent = book.pagesCount;
+  
+  bookName.textContent = `Name: ${book.name}`;
+  
+  bookAuthor.textContent = `Author: ${book.author}`;
+  
+  bookPages.textContent = `Pages: ${book.pagesCount}`;
 
 
   if (book.readStatus) {
     bookStatus.textContent = 'Read';
     bookCard.classList.add('book-read');
+    bookStatus.classList.add('status-read');
   } else {
     bookStatus.textContent = 'Not read';
   }
 
   //Adding elements to DOM
+
+  bookStatusWrapper.appendChild(bookStatus);
+
   bookCard.append(
     bookCardDeleteBtn,
-    bookNameCategory,
     bookName,
-    bookAuthorCategory,
     bookAuthor,
-    bookPagesCategory,
     bookPages,
-    bookStatus);
+    bookStatusWrapper);
   bookGrid.appendChild(bookCard);
-}
+} 
 
 addBookBtn.addEventListener('click',()=>{
   openBookWindow();
@@ -121,7 +117,6 @@ addBookToLibraryBtn.addEventListener('click',(e)=>{
   e.preventDefault();
   const newBook = getBookFromInput();
   addBookToLibrary(newBook);
-  console.log(userLibrary);
   createBookCard(newBook);
   closeBookWindow();
 })

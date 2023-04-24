@@ -18,40 +18,37 @@
   <header>
     <h1>Personal library</h1>
     <div id="header-buttons"> 
-      <button id="login-button" class="header-button"> Log In</button>
       <button id="add-book-button" class="header-button"> Add Book</button></div>
   </header>
   <main>
     <form class="add-book-popup">
       <img id="add-book-popup-close" class="delete-button" src="img/close.svg">
-        <label for="name-input" class="book-property-name">name</label>
-          <input id="name-input" class="book-property" required>
-        <label for="author-input" class="book-property-name">Author</label>
-          <input id="author-input" class="book-property" required>
-        <label for="pages-input" class="book-property-name">Pages</label>
-          <input id="pages-input" type="number" class="book-property" required>
+        <label for="name-input">name</label>
+          <input type="text" id="name-input" required>
+        <label for="author-input">Author</label>
+          <input type="text"  id="author-input" required>
+        <label for="pages-input">Pages</label>
+          <input type="number" id="pages-input" required>
           <div class="popup-checkbox-wrapper">
-            <label for="read-status" class="book-property-name">Read?</label>
-              <input id="read-status" class="popup-checkbox" type="checkbox">
+            <label for="read-status">Read?</label>
+              <input type="checkbox" id="read-status" class="popup-checkbox">
           </div>
-        <button type="submit" id="popup-add-btn" class="book-status ">Add book</button>
+        <button type="submit" id="popup-add-btn" class="book-status">Add book</button>
     </form>
 
     <div id="grid-wrapper">
     <!--  <div class="book-card book-read">
         <img class="delete-button" src="img/close.svg">
-        <h2 class="book-property-name">name</h2>
-        <p class="book-property book-author">
-          sunny day
-        </p>
-        <h2 class="book-property-name">Author</h2>
-        <p class="book-property book-name">
-          steven e</p>
-          <h2 class="book-property-name">Pages</h2>
-        <p class="book-property book-pages">
-          49</p>
-        <button class="book-status read">read</button>
-      </div> -->
+        <span class="book-property">
+            Name: No Matter How Much You Promise to Cook or Pay the Rent You Blew
+            It Cauze Bill Bailey Ain’t Never Coming
+             Home Again; A Symphonic Novel </span>
+        <span class="book-property"> by Edgardo Vega Yunqué </span>
+        <span class="book-property">Pages: 54545</span>
+        <div>
+        <button class="book-status status-read">read</button>
+      </div>
+      </div> --> 
     </div>
   </main>
 </body>

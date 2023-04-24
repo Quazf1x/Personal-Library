@@ -11,6 +11,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 body{
@@ -44,11 +45,6 @@ header h1{
   padding: 10px 25px;
   text-transform: uppercase;
   transition: all .2s;
-}
-
-#login-button:hover{
-  background-color: var(--dark-blue);
-  color: var(--main-color);
 }
 
 #add-book-button{
@@ -87,23 +83,98 @@ main{
   grid-template: 1fr / repeat(auto-fill,minmax(300px,1fr));
   width: 70%;
 }
- 
-/*BOOK CARDS AND POPUP*/
 
-.book-card,.add-book-popup{
+/*BOOK CARDS*/
+
+.book-card {
   background-color: var(--dark-blue);
   border-radius: 20px;
-  box-shadow: 0px 5px 5px #00000058;
-  padding: 25px 25px 25px 25px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 50px;
+  gap: 20px;
+  padding: 25px;
+  position: relative;
+  max-width: 500px;
+  height: 350px;
 }
+
+.book-property {
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  word-break: break-all;
+  white-space: normal;
+  font-size: 1.1rem;
+  display: flex;
+  padding: 0 10px;
+}
+
+.delete-button {
+  cursor: pointer;
+  position: absolute;
+  top:5px;
+  right: 2px;
+  width: 25px;
+}
+
+
+.book-read {
+  background-image: linear-gradient(210deg,var(--dark-blue) 20%,var(--dark-red)); 
+}
+
+/*status button*/
+
+.book-card > div {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.book-status{
+  border: 1px solid black;
+  cursor: pointer;
+  color: var(--white-color);
+  background-color: var(--dark-red);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.429);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  transition: all ease-out .15s;
+  margin-top: 20px;
+  height: 50px;
+  width: 100%;
+}
+
+.book-status:active{
+  transform: scale(.9);
+}
+
+.status-read{
+  background-color: var(--dark-blue);
+}
+
 /*POPUP*/
 
-.add-book-popup{
-  position: absolute;
-  width: clamp(200px,60%,400px);
+.add-book-popup {
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   transform: scale(0);
   transition: all .2s ease-in;
+  height: 400px;
+  padding: 25px;
+  position: absolute;
+  width: clamp(200px,60%,400px);
   z-index: 2;
+}
+
+.add-book-popup label{
+  margin: 0;
+  width: 50px;
+  color: var(--bright-red);
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 0px black;
+  text-transform: uppercase;
 }
 
 .popup-active{
@@ -111,7 +182,18 @@ main{
 }
 
 .add-book-popup input{
+  outline: none;
   width: 95%;
+}
+
+.add-book-popup input[type='text'], .add-book-popup input[type='number']{
+  border-radius: 10px;
+  border: none;
+  font-size: 1.3rem;
+  padding-left: 10px;
+  height: 50px;
+  margin: 10px 0;
+  width: 97%;
 }
 
 .popup-checkbox-wrapper{
@@ -124,76 +206,7 @@ main{
   margin-left: 20px;
 }
 
-#popup-add-btn{
-  background-color: var(--grey);
-}
 
-/*BOOK CARDS*/
-
-.book-card{
-  display: flex;
-  flex-direction: column;
-  position: relative; 
-
-}
-
-.book-read{
-  background-image: linear-gradient(210deg,var(--dark-blue) 20%,var(--dark-red)); 
-}
-
-.delete-button{
-  cursor: pointer;
-  height: 30px;
-
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  transition: all .25s;
-}
-
-.delete-button:active{
-  transform: scale(0.8);
-}
-
-.book-property,.book-status{
-  border-radius: 5px;
-  font-size: 1.3rem;
-  margin: 10px 0;
-  min-height: 50px;
-}
-
-.book-property{
-  align-items: center;
-  background-color: var(--main-color);
-  display: inline-block;
-  word-wrap: break-word;
-}
-
-.book-status{
-  border: 1px solid black;
-  cursor: pointer;
-  color: var(--white-color);
-  background-color: var(--dark-blue);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.429);
-  text-transform: uppercase;
-  transition: all ease-out .15s;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.book-status:active{
-  transform: scale(.9);
-}
-
-
-.book-property-name{
-  margin: 0;
-  color: var(--bright-red);
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 0px black;
-  text-transform: uppercase;
-  top:-24px;
-}
 
 @media only screen and (max-width: 540px){
 
