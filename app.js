@@ -53,13 +53,22 @@ const submitBook = () => {  // function that fires after the submit button is pr
   closeBookWindow();
 }
 
+const findBook = (name, array) => {
+  for(book of array){
+    if (book.name ===name)
+    return array.indexOf(book);
+  }
+}
 
-const createBookCard = (book, index) => {
+const  deleteBook = (currentBook) => {
+  userLibrary.splice(currentBook, 1);
+} 
+
+const createBookCard = (book) => {
 
   //Creating elements
 
   const bookCard = document.createElement('div');
-  bookCard.dataset.index = index;
 
   const bookCardDeleteBtn = document.createElement('img');
 
@@ -113,10 +122,10 @@ const createBookCard = (book, index) => {
     bookStatusWrapper);
   bookGrid.appendChild(bookCard);
 
- /* bookCardDeleteBtn.addEventListener('click', (e) => {
-    
-    userLibrary.splice(index,1);
-  }); */
+  bookCardDeleteBtn.addEventListener('click', (e) => {
+    deleteBook(findBook(book.name, userLibrary));
+    e.target.parentNode.remove();
+  }); 
 
   bookStatus.addEventListener('click', (e)=>{
     book.readStatus = !book.readStatus;
