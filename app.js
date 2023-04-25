@@ -102,12 +102,12 @@ const createBookCard = (book) => {
   bookPages.textContent = `Pages: ${book.pagesCount}`;
 
 
-  if (book.readStatus) {
-    bookStatus.textContent = 'Read';
+  if (book.readStatus) { //setup the book-status button
+    bookStatus.textContent = 'Status: Read';
     bookCard.classList.add('book-read');
     bookStatus.classList.add('status-read');
   } else {
-    bookStatus.textContent = 'Not read';
+    bookStatus.textContent = 'Status: Not read';
   }
 
   //Adding elements to DOM
@@ -134,10 +134,10 @@ const createBookCard = (book) => {
     bookStatus.classList.toggle('status-read');
     currentBook.classList.toggle('book-read');
     if (currentBook.classList.contains('book-read'))
-      bookStatus.innerHTML = 'Read';
+      bookStatus.innerHTML = 'Status: Read';
 
     else
-      bookStatus.innerHTML = 'Not Read';
+      bookStatus.innerHTML = 'Status: Not Read';
   });
 }
 
