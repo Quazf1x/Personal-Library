@@ -24,11 +24,11 @@
     <form class="add-book-popup" onsubmit="submitBook(); return false">
       <img id="add-book-popup-close" class="delete-button" src="img/close.svg">
         <label for="name-input">name</label>
-          <input type="text" id="name-input" required>
+          <input type="text" id="name-input" maxlength="150" required>
         <label for="author-input">Author</label>
-          <input type="text"  id="author-input" required>
+          <input type="text"  id="author-input" maxlength="70" required>
         <label for="pages-input">Pages</label>
-          <input type="number" id="pages-input" required>
+          <input type="number" id="pages-input" max="10000" required>
           <div class="popup-checkbox-wrapper">
             <label for="read-status">Read?</label>
               <input type="checkbox" id="read-status" class="popup-checkbox">

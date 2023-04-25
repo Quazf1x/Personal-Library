@@ -60,6 +60,7 @@ const createBookCard = (book, index) => {
 
   const bookCard = document.createElement('div');
   bookCard.dataset.index = index;
+
   const bookCardDeleteBtn = document.createElement('img');
 
   const bookName = document.createElement('span');
@@ -112,16 +113,23 @@ const createBookCard = (book, index) => {
     bookStatusWrapper);
   bookGrid.appendChild(bookCard);
 
+ /* bookCardDeleteBtn.addEventListener('click', (e) => {
+    
+    userLibrary.splice(index,1);
+  }); */
+
   bookStatus.addEventListener('click', (e)=>{
+    book.readStatus = !book.readStatus;
+
     const currentBook = e.target.parentNode.parentNode;
     bookStatus.classList.toggle('status-read');
     currentBook.classList.toggle('book-read');
     if(currentBook.classList.contains('book-read')) 
       bookStatus.innerHTML = 'Read';
+      
     else
       bookStatus.innerHTML = 'Not Read';
   });
-  console.log(bookCard.dataset.index);
 } 
 
 addBookBtn.addEventListener('click',()=>{
