@@ -8,17 +8,17 @@ const windowForm= document.querySelector('.add-book-popup');
 
 let userLibrary = [];
 
-class Book{
+class Book { // The book constructor
   constructor(
-    name = 'Unknown',
-    author = 'Unknown',
-    pagesCount = 0,
-    isRead = false
-    ) {
-    this.name = name;
-    this.author = author;
-    this.pagesCount = pagesCount;
-    this.readStatus = isRead;
+  name = 'Unknown',
+  author = 'Unknown',
+  pagesCount = 0,
+  isRead = false
+  ) {
+  this.name = name;
+  this.author = author;
+  this.pagesCount = pagesCount;
+  this.readStatus = isRead;
   }
 }
 
@@ -26,18 +26,18 @@ const addBookToLibrary = (book) => {
   userLibrary.push(book);
 } 
 
-const openBookWindow = () => {
+const openBookWindow = () => { //opens the modal window
   overlay.classList.add('popup-active');
   addBookWindow.classList.add('popup-active');
   windowForm.reset();  
 }
 
-const closeBookWindow = () => {
+const closeBookWindow = () => { //closes the modal window
   overlay.classList.remove('popup-active');
   addBookWindow.classList.remove('popup-active');
 }
 
-const getBookFromInput = () =>{
+const getBookFromInput = () =>{ //collect values from user input
   let name = document.querySelector('#name-input').value;
   let author = document.querySelector('#author-input').value;
   let pagesCount = document.querySelector('#pages-input').value;
@@ -46,11 +46,20 @@ const getBookFromInput = () =>{
   return new Book(name, author, pagesCount, status);
 }
 
-  const createBookCard = (book) => {
+const submitBook = () => {  // function that fires after the submit button is pressed
+  const newBook = getBookFromInput();
+  addBookToLibrary(newBook);
+  createBookCard(newBook,(userLibrary.length - 1));
+  closeBookWindow();
+}
+
+
+const createBookCard = (book, index) => {
 
   //Creating elements
 
   const bookCard = document.createElement('div');
+  bookCard.dataset.index = index;
   const bookCardDeleteBtn = document.createElement('img');
 
   const bookName = document.createElement('span');
@@ -73,7 +82,6 @@ const getBookFromInput = () =>{
   bookPages.classList.add('book-property');
 
   bookStatus.classList.add('book-status');
-
   //Filling the elements
 
   
@@ -103,6 +111,17 @@ const getBookFromInput = () =>{
     bookPages,
     bookStatusWrapper);
   bookGrid.appendChild(bookCard);
+
+  bookStatus.addEventListener('click', (e)=>{
+    const currentBook = e.target.parentNode.parentNode;
+    bookStatus.classList.toggle('status-read');
+    currentBook.classList.toggle('book-read');
+    if(currentBook.classList.contains('book-read')) 
+      bookStatus.innerHTML = 'Read';
+    else
+      bookStatus.innerHTML = 'Not Read';
+  });
+  console.log(bookCard.dataset.index);
 } 
 
 addBookBtn.addEventListener('click',()=>{
@@ -113,10 +132,4 @@ closeBookWindowBtn.addEventListener('click',()=>{
   closeBookWindow();
 })
 
-addBookToLibraryBtn.addEventListener('click',(e)=>{
-  e.preventDefault();
-  const newBook = getBookFromInput();
-  addBookToLibrary(newBook);
-  createBookCard(newBook);
-  closeBookWindow();
-})
+

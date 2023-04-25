@@ -21,7 +21,7 @@
       <button id="add-book-button" class="header-button"> Add Book</button></div>
   </header>
   <main>
-    <form class="add-book-popup">
+    <form class="add-book-popup" onsubmit="submitBook(); return false">
       <img id="add-book-popup-close" class="delete-button" src="img/close.svg">
         <label for="name-input">name</label>
           <input type="text" id="name-input" required>
@@ -33,7 +33,7 @@
             <label for="read-status">Read?</label>
               <input type="checkbox" id="read-status" class="popup-checkbox">
           </div>
-        <button type="submit" id="popup-add-btn" class="book-status">Add book</button>
+        <button type="submit" id="popup-add-btn" class="book-status" >Add book</button>
     </form>
 
     <div id="grid-wrapper">
